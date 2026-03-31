@@ -62,6 +62,9 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *upbrightness[]   = { "backlight", "+", "10", NULL };
 static const char *downbrightness[] = { "backlight", "-", "10", NULL };
+static const char *upvol[]   = { "mixer", "vol=+0.1", NULL };
+static const char *downvol[] = { "mixer", "vol=-0.1", NULL };
+static const char *mutevol[] = { "mixer", "vol.mute=toggle", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -100,6 +103,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ 0,            XF86XK_MonBrightnessUp,    spawn,          {.v = upbrightness } },
 	{ 0,            XF86XK_MonBrightnessDown,  spawn,          {.v = downbrightness } },
+	{ 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = downvol } },
+	{ 0,            XF86XK_AudioMute,          spawn,          {.v = mutevol } },
+	{ 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = upvol } },
 };
 
 /* button definitions */
