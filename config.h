@@ -65,6 +65,8 @@ static const char *downbrightness[] = { "backlight", "-", "10", NULL };
 static const char *upvol[]   = { "mixer", "vol=+0.1", NULL };
 static const char *downvol[] = { "mixer", "vol=-0.1", NULL };
 static const char *mutevol[] = { "mixer", "vol.mute=toggle", NULL };
+static const char *prtscrcmd[] = { "sh", "-c", "mkdir -p /home/dunas/images/screenshots && cd /home/dunas/images/screenshots && scrot", NULL };
+static const char *prtscrpartcmd[] = { "sh", "-c", "mkdir -p /home/dunas/images/screenshots && cd /home/dunas/images/screenshots && scrot -s", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -106,6 +108,8 @@ static const Key keys[] = {
 	{ 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = downvol } },
 	{ 0,            XF86XK_AudioMute,          spawn,          {.v = mutevol } },
 	{ 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = upvol } },
+	{ 0,            XK_Print,                  spawn,          {.v = prtscrcmd } },
+	{ ShiftMask,    XK_Print,                  spawn,          {.v = prtscrpartcmd } },
 };
 
 /* button definitions */
